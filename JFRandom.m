@@ -317,4 +317,31 @@
 	return string;
 }
 
++ (NSString *) generateRandomTypableStringOfLength: (NSUInteger) length
+{
+	
+	if (length == 0) {
+		return nil;
+	}
+	
+	NSInteger *sequence = malloc(sizeof(NSInteger) * length);
+	[JFRandom generateNumberSequenceOfLength: length
+										into: sequence
+								  betweenLow: 33
+									 andHigh: 125
+						withOnlyUniqueValues: NO];
+	
+	char *randData = malloc(length);
+	for (NSUInteger loop = 0; loop < length; loop++) {
+		randData[loop] = (char) sequence[loop];
+	}
+	
+	free(sequence);
+	NSString *string = [NSString stringWithCString: randData
+										  encoding: NSASCIIStringEncoding];
+	free(randData);
+	
+	return string;
+}
+
 @end

@@ -35,5 +35,6 @@
 + (NSData *) generateRandomSignedDataOfLength: (NSUInteger) length;
 + (NSData *) generateRandomDataOfLength: (NSUInteger) length;
 + (NSString *) generateRandomStringOfLength: (NSUInteger) length;
++ (NSString *) generateRandomTypableStringOfLength: (NSUInteger) length;
 
 @end
